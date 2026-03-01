@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameStore — Магазин видеоигр</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">Game<span>Store</span></a>
+      <nav>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О нас</a>
+      </nav>
+      <div class="header-actions" id="header-actions"></div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>🎮 Магазин цифровых игр</h1>
+  <p>Мгновенная доставка ключей. Более 5000 игр для PC, PlayStation и Xbox.</p>
+  <div class="hero-btns">
+    <button class="btn-white" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Смотреть каталог</button>
+    <button class="btn-ghost" id="register-btn" onclick="openRegister()">Создать аккаунт</button>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">5 000+</div><div class="stat-label">Игр в каталоге</div></div>
+    <div class="stat-item"><div class="stat-num">150K+</div><div class="stat-label">Покупателей</div></div>
+    <div class="stat-item"><div class="stat-num">4.9 ★</div><div class="stat-label">Средняя оценка</div></div>
+    <div class="stat-item"><div class="stat-num">~1 мин</div><div class="stat-label">Доставка ключей</div></div>
+  </div>
+</div>
+
+<main>
+  <section id="catalog">
+    <div class="section-title">Каталог <span>игр</span></div>
+    <div class="filters">
+      <input type="text" id="search" placeholder="🔍 Поиск по названию..." oninput="renderGames()">
+      <select id="genre" onchange="renderGames()">
+        <option value="">Все жанры</option>
+        <option value="RPG">RPG</option>
+        <option value="Экшн">Экшн</option>
+        <option value="Стратегия">Стратегия</option>
+        <option value="Симулятор">Симулятор</option>
+      </select>
+    </div>
+    <div class="grid" id="games-container"></div>
+  </section>
+
+  <section class="about-section" id="about">
+    <h2>О нас</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p><strong>GameStore</strong> — это российский интернет-магазин цифровых ключей для видеоигр. Мы работаем с 2020 года и за это время стали одним из самых надёжных сервисов по продаже лицензионных игр.</p>
+        <p>Мы сотрудничаем напрямую с издателями и дистрибьюторами, что позволяет предлагать конкурентные цены и гарантировать подлинность каждого ключа. После оплаты ключ поступает вам на email в течение нескольких минут.</p>
+        <p>Наш каталог включает более 5000 игр для PC (Steam, Epic Games, Ubisoft Connect), PlayStation и Xbox. Регулярные акции позволяют экономить до 70% от розничной цены.</p>
+      </div>
+      <div>
+        <ul class="features-list">
+          <li><span class="feat-icon">⚡</span> Мгновенная доставка ключа на email</li>
+          <li><span class="feat-icon">🔒</span> Гарантия подлинности каждого ключа</li>
+          <li><span class="feat-icon">💳</span> Оплата картой, СБП, электронными кошельками</li>
+          <li><span class="feat-icon">🔄</span> Возврат средств в течение 14 дней</li>
+          <li><span class="feat-icon">🎁</span> Скидки для постоянных покупателей</li>
+          <li><span class="feat-icon">🕐</span> Поддержка 24/7 в Telegram и ВКонтакте</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-contacts">
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div class="contact-label">Email поддержки</div>
+        <div class="contact-value">support@gamestore.ru</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✈️</div>
+        <div class="contact-label">Telegram</div>
+        <div class="contact-value">@GameStoreSup</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-label">Режим работы</div>
+        <div class="contact-value">Ежедневно 9:00 — 23:00</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Game<span>Store</span> © 2026</div>
+    <div class="footer-links">
+      <a href="#">Условия продажи</a>
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div id="modal-box" class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">Заголовок</h2>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
